@@ -10,7 +10,8 @@ const Updater = (provider, wallet, address) => {
 
     // rate = 10^18/usdValue
     // Decimals are not allowed
-    const rate = oneEth.div(Math.floor(usdValue));
+    // Multiply by 100 to have at least 2 decimals in
+    const rate = oneEth.div(Math.floor(usdValue * 100));
 
     // Get the data payload to call the updateRate function
     const data = contract.functions["updateRate"].encode([rate.toHexString()]);
