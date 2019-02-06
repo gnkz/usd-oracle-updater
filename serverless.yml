@@ -1,0 +1,15 @@
+service: eth-rate-sls
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, 'dev'}
+  environment: ${file(env.yml):${self:provider.stage}}
+
+functions:
+  updateRate:
+    handler: handler.run
+    timeout: 300
+    events:
+      # Invoke Lambda function every minute
+      - schedule: rate(5 minutes)
