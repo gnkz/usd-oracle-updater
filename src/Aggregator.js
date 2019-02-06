@@ -1,4 +1,8 @@
 const Median = async (feeds) => {
+  if (!Array.isArray(feeds)) throw new Error("feeds must be an array");
+
+  if (feeds.length === 0) throw new Error("feeds are empty");
+
   const results = await Promise.all(feeds);
 
   const valid = results.filter(value => value != null).sort();
