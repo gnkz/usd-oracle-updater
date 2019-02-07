@@ -23,8 +23,10 @@ const start = async () => {
 
   const txHash = await update(usdValue);
 
+  /* eslint-disable no-console */
   console.log("Rate updated:", usdValue);
   console.log("Tx:", txHash);
+  /* eslint-enable no-console */
 };
 
 module.exports = start;

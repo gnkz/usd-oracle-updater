@@ -6,6 +6,11 @@
   "engines": {
     "node": ">=8.10"
   },
+  "scripts": {
+    "run:local": "serverless invoke local -f updateRate",
+    "lint": "eslint src/ handler.js",
+    "deploy": "serverless deploy"
+  },
   "devDependencies": {
     "dotenv": "^6.2.0",
     "eslint": "^5.13.0",
