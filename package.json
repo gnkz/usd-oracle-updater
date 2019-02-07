@@ -9,12 +9,15 @@
   "scripts": {
     "run:local": "serverless invoke local -f updateRate",
     "lint": "eslint src/ handler.js",
-    "deploy": "serverless deploy"
+    "deploy": "serverless deploy",
+    "test": "jest"
   },
   "devDependencies": {
     "dotenv": "^6.2.0",
     "eslint": "^5.13.0",
-    "eslint-plugin-node": "^8.0.1"
+    "eslint-plugin-jest": "^22.2.2",
+    "eslint-plugin-node": "^8.0.1",
+    "jest": "^24.1.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
