@@ -5,7 +5,7 @@ const Median = async (feeds) => {
 
   const results = await Promise.all(feeds);
 
-  const valid = results.filter(value => value != null).sort();
+  const valid = results.filter(filterNotNulls).sort(sortAsc);
 
   if (valid.length === 0) throw new Error("All feeds failed");
 
@@ -19,6 +19,12 @@ const Median = async (feeds) => {
 
   return valid[(valid.length - 1) / 2];
 };
+
+const sortAsc = (a, b) => {
+  return a - b;
+};
+
+const filterNotNulls = (val) => val != null;
 
 module.exports = {
   Median,
