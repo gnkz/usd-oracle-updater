@@ -14,9 +14,13 @@ const start = async () => {
   const esc = EtherScan("https://api.etherscan.io", process.env.ETHERSCAN_KEY);
 
   const update = Updater(
-    new providers.JsonRpcProvider(process.env.RPC_ENDPOINT),
-    new Wallet(process.env.PRIVATE_KEY),
-    process.env.FEED_ADDRESS
+    new Wallet(
+      process.env.PRIVATE_KEY,
+      new providers.JsonRpcProvider(process.env.RPC_ENDPOINT)
+    ),
+    {
+      oracleAddress: process.env.FEED_ADDRESS,
+    }
   );
 
   const usdValue = await Median([cmc(), ccp(), esc()]);
